@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.testsa.dto.MarinheiroDTO;
 import com.example.testsa.entities.Marinheiro;
 import com.example.testsa.service.MarinheiroService;
 
@@ -28,7 +29,7 @@ public class MarinheiroController {
     }
 
     @PostMapping("/post")
-    public ResponseEntity<Marinheiro> postMethodName(@RequestBody Marinheiro entity) {
+    public ResponseEntity<MarinheiroDTO> postMethodName(@RequestBody MarinheiroDTO entity) {
 
         return ResponseEntity.ok(entity);
     }
