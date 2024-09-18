@@ -1,10 +1,11 @@
 package com.example.testsa.service;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import com.example.testsa.entities.Marinheiro;
 import com.example.testsa.repositories.MarinheiroRepository;
 
