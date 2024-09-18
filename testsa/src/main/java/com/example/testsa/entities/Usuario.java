@@ -12,6 +12,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 // import jakarta.persistence.PrePersist;
 import jakarta.persistence.OneToOne;
 
@@ -47,7 +48,9 @@ public class Usuario {
 	@Column(name = "categoria")
 	private String categoriaUsuario;
 
-	@OneToOne(mappedBy = "usuario", fetch = FetchType.LAZY)
+	// @OneToOne(fetch = FetchType.LAZY)
+	// @JoinColumn(name = "id_usuario")
+	@OneToOne(mappedBy = "usuario", optional = true)
 	private Marinheiro marinheiro;
 
 	public Usuario() {
