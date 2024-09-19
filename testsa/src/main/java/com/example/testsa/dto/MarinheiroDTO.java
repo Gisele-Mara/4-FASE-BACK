@@ -21,9 +21,9 @@ public class MarinheiroDTO {
     // @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
 
     private Usuario usuario;
-
-    public Marinheiro MarinheiroDTO(Marinheiro marinheiro) {
-        BeanUtils.copyProperties(marinheiro, this);
+        
+   
+    public Marinheiro MarinheiroDTO() {
         return new Marinheiro();
     }
 

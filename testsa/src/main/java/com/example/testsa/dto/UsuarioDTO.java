@@ -30,12 +30,18 @@ public class UsuarioDTO {
 
 	private Marinheiro marinheiro;
 
-    public UsuarioDTO(Usuario usuario) {
-        BeanUtils.copyProperties(usuario, this);
-    }
+    
 
-    public UsuarioDTO() {
-        
+    public UsuarioDTO(String nomeCompleto, String cpf, Date dataNascimento, String genero, String telefone,
+            String email, String senha, String categoriaUsuario) {
+        this.nomeCompleto = nomeCompleto;
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+        this.genero = genero;
+        this.telefone = telefone;
+        this.email = email;
+        this.senha = senha;
+        this.categoriaUsuario = categoriaUsuario;
     }
 
     public UUID getId() {

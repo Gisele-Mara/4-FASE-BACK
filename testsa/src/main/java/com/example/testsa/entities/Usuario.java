@@ -3,6 +3,8 @@ package com.example.testsa.entities;
 import java.sql.Date;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 // import com.github.f4b6a3.ulid.Ulid;
 // import com.github.f4b6a3.ulid.UlidCreator;
 
@@ -50,12 +52,15 @@ public class Usuario {
 
 	// @OneToOne(fetch = FetchType.LAZY)
 	// @JoinColumn(name = "id_usuario")
+	 @JsonIgnoreProperties("usuario")
 	@OneToOne(mappedBy = "usuario", optional = true)
 	private Marinheiro marinheiro;
 
 	public Usuario() {
 
 	}
+
+
 
 	public String getNomeCompleto() {
 		return nomeCompleto;
