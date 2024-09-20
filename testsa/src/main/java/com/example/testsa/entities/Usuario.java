@@ -15,7 +15,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-// import jakarta.persistence.PrePersist;
+
 import jakarta.persistence.OneToOne;
 
 @Entity(name = "usuario")
@@ -52,7 +52,7 @@ public class Usuario {
 
 	// @OneToOne(fetch = FetchType.LAZY)
 	// @JoinColumn(name = "id_usuario")
-	 @JsonIgnoreProperties("usuario")
+	@JsonIgnoreProperties("usuario")
 	@OneToOne(mappedBy = "usuario", optional = true)
 	private Marinheiro marinheiro;
 
@@ -61,7 +61,7 @@ public class Usuario {
 	}
 
 
-
+	
 	public String getNomeCompleto() {
 		return nomeCompleto;
 	}

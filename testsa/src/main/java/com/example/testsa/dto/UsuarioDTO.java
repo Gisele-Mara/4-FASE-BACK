@@ -3,8 +3,6 @@ package com.example.testsa.dto;
 import java.sql.Date;
 import java.util.UUID;
 
-import org.springframework.beans.BeanUtils;
-
 import com.example.testsa.entities.Marinheiro;
 import com.example.testsa.entities.Usuario;
 
@@ -32,8 +30,7 @@ public class UsuarioDTO {
 
     
 
-    public UsuarioDTO(String nomeCompleto, String cpf, Date dataNascimento, String genero, String telefone,
-            String email, String senha, String categoriaUsuario) {
+    public UsuarioDTO(Usuario usuario) {
         this.nomeCompleto = nomeCompleto;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
@@ -43,6 +40,8 @@ public class UsuarioDTO {
         this.senha = senha;
         this.categoriaUsuario = categoriaUsuario;
     }
+
+  
 
     public UUID getId() {
         return id;
