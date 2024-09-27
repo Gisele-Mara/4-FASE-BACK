@@ -59,7 +59,7 @@ public class LeitorController {
          
                 List<EmprestimoDTORes> emprestimosRes = entity.getEmprestimos()
                 .stream()
-                .map(emp ->EmprestimosconvertToDTO(emp))
+                .map(emp ->EmprestimosToDTO(emp))
                 .toList();
 
                 dtozinho.setEmprestimos(emprestimosRes);
@@ -77,7 +77,7 @@ public class LeitorController {
 
      }
 
-     public EmprestimoDTORes EmprestimosconvertToDTO(Emprestimos entity){
+     public EmprestimoDTORes EmprestimosToDTO(Emprestimos entity){
 
         EmprestimoDTORes dtozinho = new EmprestimoDTORes();
         dtozinho.setLivro(entity.getLivro());
@@ -97,7 +97,7 @@ public class LeitorController {
          
                 List<EmprestimoDTORes> emprestimosRes = entity.getEmprestimos()
                 .stream()
-                .map(emp ->EmprestimosconvertToDTO(emp))
+                .map(emp ->EmprestimosToDTO(emp))
                 .toList();
 
                 dtozinho.setEmprestimos(emprestimosRes);
