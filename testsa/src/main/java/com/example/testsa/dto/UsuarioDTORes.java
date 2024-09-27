@@ -4,11 +4,10 @@ import java.sql.Date;
 import java.util.UUID;
 
 import com.example.testsa.entities.Marinheiro;
-import com.example.testsa.entities.Usuario;
 
-public class UsuarioDTO {
+public class UsuarioDTORes {
     
-    private UUID id;
+       private UUID id;
 
 	private String nomeCompleto;
 
@@ -27,21 +26,6 @@ public class UsuarioDTO {
 	private String categoriaUsuario;
 
 	private Marinheiro marinheiro;
-
-    
-
-    public UsuarioDTO(Usuario usuario) {
-        // this.nomeCompleto = nomeCompleto;
-        // this.cpf = cpf;
-        // this.dataNascimento = dataNascimento;
-        // this.genero = genero;
-        // this.telefone = telefone;
-        // this.email = email;
-        // this.senha = senha;
-        // this.categoriaUsuario = categoriaUsuario;
-    }
-
-  
 
     public UUID getId() {
         return id;

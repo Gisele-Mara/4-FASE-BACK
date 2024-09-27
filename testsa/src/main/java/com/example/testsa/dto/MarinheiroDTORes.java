@@ -1,11 +1,9 @@
 package com.example.testsa.dto;
 
-import org.springframework.beans.BeanUtils;
 
-import com.example.testsa.entities.Marinheiro;
 import com.example.testsa.entities.Usuario;
 
-public class MarinheiroDTO {
+public class MarinheiroDTORes {
     
      private Long id_marinheiro;
     
@@ -22,11 +20,7 @@ public class MarinheiroDTO {
 
     private Usuario usuario;
         
-   
-    public Marinheiro MarinheiroDTO() {
-        return new Marinheiro();
-    }
-
+      
     public Long getId_marinheiro() {
         return id_marinheiro;
     }

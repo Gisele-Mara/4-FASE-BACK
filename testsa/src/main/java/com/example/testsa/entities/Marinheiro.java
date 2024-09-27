@@ -1,6 +1,5 @@
 package com.example.testsa.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,14 +29,10 @@ public class Marinheiro {
     private int anosExperiencia;
 
     // @OneToOne(mappedBy = "marinheiro", fetch = FetchType.LAZY)
-    @JsonIgnoreProperties("marinheiro")
     @OneToOne
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
     private Usuario usuario;
 
-    // public Marinheiro(MarinheiroDTO marinheiro) {
-    // BeanUtils.copyProperties(marinheiro, this);
-    // }
 
     public Long getId_marinheiro() {
         return id_marinheiro;
@@ -45,17 +40,6 @@ public class Marinheiro {
     public Marinheiro(){
 
     }
-
-    // public Marinheiro(Long id_marinheiro, String categoria, String registroMaritimo, String disponibilidade,
-    //         int anosExperiencia, Usuario usuario) {
-        
-    //             this.id_marinheiro = id_marinheiro;
-    //     this.categoria = categoria;
-    //     this.registroMaritimo = registroMaritimo;
-    //     this.disponibilidade = disponibilidade;
-    //     this.anosExperiencia = anosExperiencia;
-    //     this.usuario = usuario;
-    // }
 
     public void setId_marinheiro(Long id_marinheiro) {
         this.id_marinheiro = id_marinheiro;

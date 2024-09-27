@@ -22,7 +22,7 @@ public class UsuarioController {
     @Autowired
     UsuarioService usuarioService;
 
-    @GetMapping("/")
+    @GetMapping("/u")
     public ResponseEntity<?> getTeam() {
 
         var teams = usuarioService.getAllUsuario();
