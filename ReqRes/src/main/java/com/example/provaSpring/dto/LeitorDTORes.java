@@ -9,15 +9,6 @@ public class LeitorDTORes {
     private String nome;
     private EnderecoDTORes endereco;
     private List <EmprestimoDTORes> emprestimos;
- 
-   
-       
-    // public LeitorDTORes(Long id, String nome, Endereco endereco, List<Emprestimos> emprestimos) {
-    //     this.id = id;
-    //     this.nome = nome;
-    //     this.endereco = endereco;
-    //     this.emprestimos = emprestimos;
-    // }
 
     public Long getId() {
         return id;
@@ -32,7 +23,6 @@ public class LeitorDTORes {
         this.nome = nome;
     }
 
- 
     public EnderecoDTORes getEndereco() {
         return endereco;
     }

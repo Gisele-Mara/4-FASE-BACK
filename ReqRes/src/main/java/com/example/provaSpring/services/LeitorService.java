@@ -1,13 +1,12 @@
 package com.example.provaSpring.services;
 
-import java.util.List;
 import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.provaSpring.entities.Emprestimos;
-import com.example.provaSpring.entities.Endereco;
+
 import com.example.provaSpring.entities.Leitor;
 import com.example.provaSpring.repositories.EmprestimosRepository;
 import com.example.provaSpring.repositories.EnderecoRepository;
@@ -18,10 +17,12 @@ public class LeitorService {
     
     @Autowired
     LeitorRepository leitorRepository;
-    @Autowired
-    EmprestimosRepository emprestimosRepository;
-    @Autowired
-    EnderecoRepository enderecoRepository;
+
+    public List <Leitor> getAllLeitor(){
+
+        return leitorRepository.findAll();
+
+    }
 
     public Leitor getLeitorById(Long id){
         

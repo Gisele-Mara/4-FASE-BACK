@@ -26,8 +26,7 @@ public class EmprestimosService{
         
         Leitor id_leitor = new Leitor();
         id_leitor.setId_leitor(id);
-        entity.forEach( a -> {
-            
+        entity.forEach( a -> {    
              a.setLeitor(id_leitor);
             emprestimosRepository.saveAll(entity);
         
