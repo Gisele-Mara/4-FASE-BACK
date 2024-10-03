@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.provaSpring.converter.LeitorConverterRes;
+import com.example.provaSpring.converter.req.LeitorConverterReq;
 import com.example.provaSpring.dto.EmprestimoDTORes;
 import com.example.provaSpring.dto.EnderecoDTORes;
 import com.example.provaSpring.dto.LeitorDTORes;
@@ -40,11 +42,11 @@ public class LeitorController {
    EmprestimosService emprestimoService;
 
    @GetMapping("/")
-   public ResponseEntity<List<LeitorDTORes>> getAllMethodName() {
+   public ResponseEntity<List<LeitorDTORes>> getAllLeitores() {
 
        var allLeitors = leitorService.getAllLeitor()
             .stream()
-            .map(emp -> converterDTORes(emp))
+            .map(emp -> LeitorConverterRes.converterDTORes(emp))
             .toList();
 
        return ResponseEntity.ok(allLeitors);
@@ -56,83 +58,9 @@ public class LeitorController {
 
       Leitor a = leitorService.getLeitorById(id_param);
 
-      LeitorDTORes dtoRes = converterDTORes(a);
+      LeitorDTORes dtoRes = LeitorConverterRes.converterDTORes(a);
 
       return ResponseEntity.ok(dtoRes);
-   }
-
-   public LeitorDTORes converterDTORes(Leitor entity) {
-
-      LeitorDTORes dtozinho = new LeitorDTORes();
-      dtozinho.setId(entity.getId_leitor());
-      dtozinho.setNome(entity.getNome());
-      dtozinho.setEndereco(EnderecotoDtoRes(entity.getEndereco()));
-
-      List<EmprestimoDTORes> emprestimosRes = entity.getEmprestimos()
-            .stream()
-            .map(emp -> EmprestimosToDTORes(emp))
-            .toList();
-
-      dtozinho.setEmprestimos(emprestimosRes);
-      return dtozinho;
-   }
-
-   public EnderecoDTORes EnderecotoDtoRes(Endereco entity) {
-
-      EnderecoDTORes dtozinho = new EnderecoDTORes();
-      dtozinho.setRua(entity.getRua());
-      dtozinho.setNumero(entity.getNumero());
-      dtozinho.setCidade(entity.getCidade());
-
-      return dtozinho;
-
-   }
-
-   public EmprestimoDTORes EmprestimosToDTORes(Emprestimos entity) {
-
-      EmprestimoDTORes dtozinho = new EmprestimoDTORes();
-      dtozinho.setLivro(entity.getLivro());
-      dtozinho.setDataEmprestismo(entity.getDataEmprestismo());
-
-      return dtozinho;
-
-   }
-   // ----- REQ ----------
-   public EnderecoDTOReq EnderecotoDtoReq(Endereco entity) {
-
-      EnderecoDTOReq dtozinho = new EnderecoDTOReq();
-      dtozinho.setRua(entity.getRua());
-      dtozinho.setNumero(entity.getNumero());
-      dtozinho.setCidade(entity.getCidade());
-
-      return dtozinho;
-
-   }
-
-   public EmprestimoDTOReq EmprestimosToDTOReq(Emprestimos entity) {
-
-      EmprestimoDTOReq dtozinho = new EmprestimoDTOReq();
-      dtozinho.setLivro(entity.getLivro());
-      dtozinho.setDataEmprestismo(entity.getDataEmprestismo());
-
-      return dtozinho;
-
-   }
-
-   public LeitorDTOReq converterDTOReq(Leitor entity) {
-
-      LeitorDTOReq dtozinho = new LeitorDTOReq();
-      dtozinho.setId(entity.getId_leitor());
-      dtozinho.setNome(entity.getNome());
-      dtozinho.setEndereco(EnderecotoDtoReq(entity.getEndereco()));
-
-      List<EmprestimoDTOReq> emprestimosRes = entity.getEmprestimos()
-            .stream()
-            .map(emp -> EmprestimosToDTOReq(emp))
-            .toList();
-
-      dtozinho.setEmprestimos(emprestimosRes);
-      return dtozinho;
    }
 
    @PostMapping("/")
@@ -145,7 +73,8 @@ public class LeitorController {
 
       dtoRes.setEndereco(EnderecoDBRes);
       dtoRes.setEmprestimos(EmprestimoDBRes);
-      LeitorDTOReq response = converterDTOReq(dtoRes);
+      // LeitorDTOReq response = converterDTOReq(dtoRes);
+      LeitorDTOReq response = LeitorConverterReq.LeitorDTOReq(dtoRes);
       // return ResponseEntity.ok(getAll(dtoRes.getId_leitor()));
 
       return ResponseEntity.ok(response);

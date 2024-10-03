@@ -2,7 +2,6 @@ package com.example.provaSpring.converter.req;
 
 import java.util.List;
 
-
 import com.example.provaSpring.dto.req.EmprestimoDTOReq;
 import com.example.provaSpring.dto.req.EnderecoDTOReq;
 import com.example.provaSpring.dto.req.LeitorDTOReq;
@@ -10,9 +9,11 @@ import com.example.provaSpring.entities.Emprestimos;
 import com.example.provaSpring.entities.Endereco;
 import com.example.provaSpring.entities.Leitor;
 
-public class LeitorConverter {
-    
-   public EnderecoDTOReq EnderecotoDtoReq(Endereco entity) {
+// --- Não implementado ---
+public interface LeitorConverterReq {
+   
+
+   public static EnderecoDTOReq EnderecotoDtoReq(Endereco entity) {
 
       EnderecoDTOReq dtozinho = new EnderecoDTOReq();
       dtozinho.setRua(entity.getRua());
@@ -23,7 +24,7 @@ public class LeitorConverter {
 
    }
 
-   public EmprestimoDTOReq EmprestimosToDTOReq(Emprestimos entity) {
+   public static EmprestimoDTOReq EmprestimosToDTOReq(Emprestimos entity) {
 
       EmprestimoDTOReq dtozinho = new EmprestimoDTOReq();
       dtozinho.setLivro(entity.getLivro());
@@ -32,10 +33,11 @@ public class LeitorConverter {
       return dtozinho;
 
    }
-
-   public LeitorDTOReq converterDTOReq(Leitor entity) {
+   
+   public static LeitorDTOReq LeitorDTOReq(Leitor entity) {
 
       LeitorDTOReq dtozinho = new LeitorDTOReq();
+      dtozinho.setId(entity.getId_leitor());
       dtozinho.setNome(entity.getNome());
       dtozinho.setEndereco(EnderecotoDtoReq(entity.getEndereco()));
 
